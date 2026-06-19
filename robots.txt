@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yhsolav.github.io/siteindex-i-game-com-cn/sitemap.xml
