@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+  <title>188bet · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce9d7 0%, #f2d7b8 50%, #f1cdab 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .card-container {
+      max-width: 1120px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+      border-radius: 3.5rem 3.5rem 2rem 2rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 45px -12px rgba(150, 90, 40, 0.25);
+    }
+
+    /* 主卡片外框 ———— 暖白基调 */
+    .page-card {
+      background: #fffffffa;
+      border-radius: 2.5rem;
+      box-shadow: 0 8px 32px rgba(190, 130, 75, 0.12), 0 1px 3px rgba(0,0,0,0.05);
+      padding: 2.8rem 2.2rem;
+    }
+
+    /* 主视觉区 */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #b4581a, #d47b3a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero .subhead {
+      font-size: 1.2rem;
+      color: #6e4f38;
+      background: #f7ede4;
+      display: inline-block;
+      padding: 0.35rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 450;
+      letter-spacing: 0.3px;
+    }
+
+    .hero .subhead i {
+      font-style: normal;
+      background: #cb8c5e;
+      color: white;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      margin-left: 8px;
+    }
+
+    /* 描述 / 引言 */
+    .intro-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #2e211a;
+      background: #fcf7f2;
+      padding: 1.6rem 2rem;
+      border-radius: 30px;
+      margin-bottom: 2.8rem;
+      box-shadow: inset 0 1px 4px rgba(185, 130, 80, 0.06);
+      border: 1px solid #f0ded0;
+    }
+
+    .intro-text a {
+      color: #b85d2a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #ecc7ae;
+      transition: all 0.15s ease;
+    }
+
+    .intro-text a:hover {
+      background: #fbe6d8;
+      border-bottom-color: #bf6a33;
+    }
+
+    /* 用途卡片组 —— 两列 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 1.8rem 1.6rem 1.6rem;
+      border: 1px solid #f2ddd0;
+      box-shadow: 0 6px 12px rgba(170, 115, 65, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(160, 105, 55, 0.1);
+      border-color: #dbaa83;
+    }
+
+    .feature-card .emoji-badge {
+      font-size: 2.2rem;
+      background: #f4e2d4;
+      display: inline-block;
+      width: 54px;
+      height: 54px;
+      line-height: 58px;
+      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 0.7rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 550;
+      color: #4d2f1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: #3e2d21;
+      line-height: 1.55;
+      font-size: 1rem;
+    }
+
+    /* 适合人群 + 提醒 两列小卡片 */
+    .row-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .info-panel {
+      background: #fffbf7;
+      border-radius: 26px;
+      padding: 1.5rem 1.6rem;
+      border-left: 6px solid #dc9f72;
+      box-shadow: 0 4px 12px rgba(170, 115, 60, 0.04);
+    }
+
+    .info-panel.warm-border {
+      border-left-color: #bf7d4f;
+    }
+
+    .info-panel h4 {
+      font-size: 1.35rem;
+      font-weight: 540;
+      color: #562f16;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-panel ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-panel li {
+      padding: 0.3rem 0;
+      font-size: 0.98rem;
+      color: #3b291d;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .info-panel li::before {
+      content: "·";
+      position: absolute;
+      left: 6px;
+      color: #d28a57;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .reminder-card {
+      background: #fef3ea;
+      border-radius: 26px;
+      padding: 1.6rem 1.6rem;
+    }
+
+    .reminder-card p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #3a281d;
+    }
+
+    .reminder-card strong {
+      color: #a25324;
+    }
+
+    /* 自然链接段落 */
+    .natural-link-section {
+      background: #f9ede4;
+      padding: 1.6rem 2rem;
+      border-radius: 40px;
+      margin: 2rem 0 1.2rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #2b1e15;
+      text-align: center;
+    }
+
+    .natural-link-section a {
+      color: #964f26;
+      font-weight: 600;
+      text-decoration: none;
+      background: #ffe9db;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      transition: 0.12s;
+      white-space: nowrap;
+    }
+
+    .natural-link-section a:hover {
+      background: #dba57b;
+      color: white;
+    }
+
+    /* FAQ小摘要 */
+    .faq-mini {
+      background: #fbf3ec;
+      border-radius: 24px;
+      padding: 1.3rem 1.8rem;
+      border: 1px dashed #cfa17b;
+    }
+
+    .faq-mini details {
+      margin: 0.6rem 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 520;
+      cursor: pointer;
+      color: #5a351e;
+      padding: 0.2rem 0;
+      transition: 0.1s;
+    }
+
+    .faq-mini summary:hover {
+      color: #964e1e;
+    }
+
+    .faq-mini p {
+      margin-top: 0.4rem;
+      color: #3f2c1d;
+      padding-left: 0.5rem;
+      border-left: 2px solid #e3b696;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .card-container {
+        padding: 1.2rem 0.8rem;
+        border-radius: 2.5rem;
+      }
+      .page-card {
+        padding: 1.8rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      .row-duo {
+        grid-template-columns: 1fr;
+      }
+      .intro-text {
+        padding: 1.2rem;
+        font-size: 1rem;
+      }
+      .natural-link-section {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="card-container">
+  <div class="page-card">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>188bet</h1>
+      <div class="subhead">
+        简明指南 · 生活化提醒
+        <i>日常</i>
+      </div>
+    </div>
+
+    <!-- 引言：从简明指南和访问提醒切入 -->
+    <div class="intro-text">
+      对许多朋友来说，<a href="https://official-188bet.com">188bet</a> 是一个熟悉的名字。不过平台环境时常变化，我们整理了一份轻量级的使用提醒，帮你更顺畅地找到需要的页面，避开常见误区。
+    </div>
+
+    <!-- 用途卡片 2列 -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="emoji-badge">📋</div>
+        <h3>快速定位</h3>
+        <p>无论是活动入口还是常用板块，一份简单的导航思路，能省去反复查找的麻烦。记下官方域名，优先通过正规渠道访问。</p>
+      </div>
+      <div class="feature-card">
+        <div class="emoji-badge">🛡️</div>
+        <h3>环境检查</h3>
+        <p>网络状况、浏览器设置、安全证书——偶尔花一分钟确认这些细节，避免因小问题影响访问。保持系统和浏览器更新。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 + 访问提醒 双栏 -->
+    <div class="row-duo">
+      <!-- 适合人群 -->
+      <div class="info-panel">
+        <h4>🧑‍🤝‍🧑 适合这样的你</h4>
+        <ul>
+          <li>刚刚接触 <strong><a href="https://official-188bet.com" style="color:#9d5227;text-decoration:underline 1px dotted #c48754;">188bet</a></strong>，想先了解基础</li>
+          <li>偶尔使用，但不常关注最新页面变动</li>
+          <li>习惯用书签或收藏夹，需要更新到正确地址</li>
+          <li>希望获得一份轻量、实用的访问预备清单</li>
+        </ul>
+      </div>
+      <!-- 访问提醒 暖色卡片 -->
+      <div class="info-panel warm-border">
+        <h4>🔔 几点提醒</h4>
+        <ul>
+          <li>始终使用官方连结，注意域名拼写</li>
+          <li>公共网络下留意隐私与安全</li>
+          <li>如遇页面加载异常，先检查网络与浏览器</li>
+          <li>不要轻信非官方的插件或第三方工具</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 188bet) -->
+    <div class="natural-link-section">
+      📍 如果你正在找 <a href="https://official-188bet.com">188bet</a> 的当前页面，建议直接将官方网址加入浏览器收藏夹。平日多留意网址变化，比临时搜索更可靠。另外，遇到访问提示时先看看是不是缓存问题。
+    </div>
+
+    <!-- FAQ 小摘要 -->
+    <div class="faq-mini">
+      <details>
+        <summary>❓ 为什么推荐直接使用书签？</summary>
+        <p>每次手动搜索可能碰到广告或仿冒页面。保存官方链接能减少误入其他网站的概率，也更省时间。</p>
+      </details>
+      <details>
+        <summary>❓ 页面打不开一定是平台问题吗？</summary>
+        <p>不一定。有时是本地网络、浏览器插件、缓存或 DNS 设置导致。建议先尝试切换网络或使用无痕模式。</p>
+      </details>
+      <details>
+        <summary>❓ 如何确认我访问的是官方页面？</summary>
+        <p>核对域名是否为 official-188bet.com，同时检查页面是否有安全证书（锁形图标）。不要仅凭外观判断。</p>
+      </details>
+    </div>
+
+    <!-- 极简脚注（不出现在a里） -->
+    <div style="margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #7b5b42; border-top: 1px solid #ecdacb; padding-top: 1.5rem;">
+      <span>保持轻松，留意细节 · 祝访问顺利</span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
